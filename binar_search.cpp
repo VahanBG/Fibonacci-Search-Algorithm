@@ -1,12 +1,13 @@
-// Փնտրում ենք մեր ուզած էլեմնտը
+// Փնտրում ենք մեր ուզած էլեմնտը,
+//եթե առկա է զանգվածում ՝ վերադարցնում ենք ինդեքսը, եթե ոճ ՝ -1 ։
 #include<iostream>
 #include <algorithm>
-void sort(int*arr,int size_arr)
+void sort ( int* arr , int size_arr )
 {
     for(int i = 0 ; i < size_arr - 1 ; i++){
-        for(int j = i + 1 ; j < size_arr ; j++){
-            if(arr[i]>arr[j]){
-               std::swap(arr[i],arr[j]);
+        for( int j = i + 1 ; j < size_arr ; j++){
+            if( arr[i] > arr[j] ) {
+               std::swap ( arr[i] , arr[j] ) ;
             }
         }
     }
@@ -29,17 +30,10 @@ int search_binar(int arr[],int size,int number){
     }
           return -1 ;
 }
-int search(int arr[],int size,int number){
-    for(int i = 0 ; i < size ; i++){
-        if(arr[i]== number ){
-            return i ;
-        }
-    }
-    return -1 ;
-}
-void print_arr(int *arr,int size_arr){
-  for(int i = 0 ; i < size_arr; i++ ){
-        std::cout<<arr[i]<<" ";
+
+void print_arr ( int *arr , int size_arr){
+  for( int i = 0 ; i < size_arr; i++ ){
+        std::cout << arr[i] << " " ;
     }
 }
 
@@ -50,7 +44,7 @@ int main()
      int arr[]= {2,5,7,45,18,13,78,65,12,44};
      int size = sizeof(arr) / sizeof(arr[0]);
      int number;
-     std::cout<<"please enter the number whichi are you search"<<std::endl;
+     std::cout<<"please enter the number which are you search"<<std::endl;
      std::cin>>number;
      //if(search(arr,size,number) != -1){
      //std::cout<<"the number index in your arr is : "<<search(arr,size,number); 
