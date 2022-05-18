@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 
-void sort(int*arr,int size_arr)
+void sort(std::vector<int>::iterator arr,int size_arr)
 {
     for(int i = 0 ; i < size_arr - 1 ; i++){
         for(int j = i + 1 ; j < size_arr ; j++){
@@ -31,7 +31,7 @@ int index_of_fibanachi(int size_of_arr ){  //վերադարցնում է ֆիբ�
     }
     return -1 ;     
 }
-int fibanachi_search(int arr[],int size,int number){
+int fibanachi_search(std::vector<int>::iterator arr,int size,int number){
     int numfor_search_fib = index_of_fibanachi(size);//k
     int index_for_mas = fibanachi(numfor_search_fib +1) - (size + 1 );//M թույլ է տալիս տարածել փնտրումը ցանկացած զանգվածի չափով
     int index_for_search = fibanachi(numfor_search_fib) - index_for_mas ; // i պետք է փնտրման տիրույթները որոշելու համար
@@ -94,23 +94,37 @@ int fibanachi_search(int arr[],int size,int number){
 
 
 
-void print_arr(int *arr,int size_arr){
+void print_arr(std::vector<int>::iterator arr,int size_arr){
   for(int i = 0 ; i < size_arr; i++ ){
         std::cout<<arr[i]<<" ";
     }
 }
 int main()
 {
-    int arr[]={4,7,12,15,17,21,33,54,44,9};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int number = 21;
-    //std::cout<<"please enter the number which are you search"<<std::endl;
-    //std::cin>>number;
-    //print_arr( arr , size );
-    sort(arr,size);
-    print_arr( arr , size );
-    std::cout<<std::endl;
-   std::cout<<fibanachi_search(arr , size , number);
+   // int arr[]={4,7,12,15,17,21,33,54,44,9};
+    int size ;//= sizeof(arr) / sizeof(arr[0]);
+     std::cout<<"please enter size of numbers in your array"<<std::endl;
+     std::cin >> size ;
+     std::cout<<"please enter numbers of your array"<<std::endl;
+     std::vector <int> myVector;
+     int numbers ;
+     for(int i = 0 ; i < size ; i++){
+         std::cout<<"enter value of "<< i << " index " <<std::endl ;
+         std::cin>> numbers;
+         myVector.push_back(numbers);
+         numbers = 0 ;
+     }
+     int number;
+     std::cout<<"please enter the number which are you search"<<std::endl;
+     std::cin>>number;
+     //if(search(arr,size,number) != -1){
+     //std::cout<<"the number index in your arr is : "<<search(arr,size,number); 
+     //
+     //else{std::cout<<"the number which you are serarching not in your arr";}
+     std::vector<int>::iterator it;
+     it = myVector.begin();
+     sort(it,size);
+     std::cout<<fibanachi_search(it , size , number);
 
     
 }

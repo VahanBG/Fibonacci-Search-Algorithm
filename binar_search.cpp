@@ -65,8 +65,8 @@ int main()
      std::vector<int>::iterator it;
      it = myVector.begin();
      sort(it,size);
-     print_arr(it,size);//tpum e zangvac@
-     //std::cout<<search_binar(myVector,size,number);
+     //print_arr(it,size);//tpum e zangvac@
+     std::cout<<search_binar(it,size,number);
      
      
 }
