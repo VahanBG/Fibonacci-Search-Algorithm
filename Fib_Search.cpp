@@ -13,7 +13,7 @@ void sort( std::vector<int>::iterator arr , int size_arr ) //սա դասավոր
         
     }
 }
-int fibanachi( int index_of_fibanachi ) {
+int fibanachi( int index_of_fibanachi ) { //տալիս է ֆիբանաչիի տրված ինդեքսի թիվը
     if ( index_of_fibanachi <= 1 ){
         return index_of_fibanachi;
     }
@@ -30,7 +30,7 @@ int index_of_fibanachi( int size_of_arr ){  //վերադարցնում է ֆիբ
     }
     return -1 ;     
 }
-int fibanachi_search (std::vector<int>::iterator arr , int size , int number){
+int fibanachi_search (std::vector<int>::iterator arr , int size , int number){// գտնում ենք այն մեր ուզած ֆիբ․թիվը, արդեն սորտավորված զանգվածում և վերադարցնում այդ թվի ինդեքսը
     int numfor_search_fib = index_of_fibanachi( size );//k
     int index_for_mas = fibanachi( numfor_search_fib +1 ) - ( size + 1 );//M թույլ է տալիս տարածել փնտրումը ցանկացած զանգվածի չափով
     int index_for_search = fibanachi( numfor_search_fib ) - index_for_mas ; // i պետք է փնտրման տիրույթները որոշելու համար
@@ -90,7 +90,7 @@ int fibanachi_search (std::vector<int>::iterator arr , int size , int number){
     return result_of_fib_search ;
 
 }
-void print_arr(std::vector<int>::iterator arr , int size_arr ){
+void print_arr(std::vector<int>::iterator arr , int size_arr ){ //տպւմ ենք զանգվածը
   for(int i = 0 ; i < size_arr ; i++ ){
         std::cout << arr[i] << " ";
     }
