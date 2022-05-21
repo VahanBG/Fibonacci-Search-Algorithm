@@ -2,6 +2,7 @@
 //եթե առկա է զանգվածում ՝ վերադարցնում ենք ինդեքսը, եթե ոճ ՝ -1 ։
 #include<iostream>
 #include<vector>
+#include<list>
 #include <algorithm>
 void sort ( std::vector<int>::iterator arr , int size_arr )
 {
@@ -13,6 +14,7 @@ void sort ( std::vector<int>::iterator arr , int size_arr )
         }
     }
 }
+
 
 int search_binar(std::vector<int>::iterator arr,int size,int number){
     int first_index = 0 ; //pntrvox arachin element
