@@ -11,17 +11,12 @@ int fibanachi( int index_of_fibanachi ) { //տալիս է ֆիբանաչիի տ�
          return fibanachi( index_of_fibanachi - 1 ) + fibanachi( index_of_fibanachi - 2 );
     }
 }
-int index_of_fibanachi( int size_of_arr ){  //վերադարցնում է ֆիբոնաչիի այն էլէմենտի արժեքը + 1,որը ">=" է զանգվածի չափից + 1
-    int index = 0;
-    while(!(fibanachi(index) >= size_of_arr +1)){
-        index ++ ;
-    }
-  
-    return index-1 ;     
-
-}
 int fibanachi_search (std::vector<int> arr ,  int number){// գտնում ենք այն մեր ուզած ֆիբ․թիվը, արդեն սորտավորված զանգվածում և վերադարցնում այդ թվի ինդեքսը
-    int numfor_search_fib = index_of_fibanachi( arr.size() );//k
+    int numfor_search_fib  = 0;
+    while(!(fibanachi(numfor_search_fib) >= arr.size() +1)){
+        numfor_search_fib ++ ;
+    }
+    numfor_search_fib--;
     int index_for_mas = fibanachi( numfor_search_fib +1 ) - ( arr.size() + 1 );//M թույլ է տալիս տարածել փնտրումը ցանկացած զանգվածի չափով
     int index_for_search = fibanachi( numfor_search_fib ) - index_for_mas ; // i պետք է փնտրման տիրույթները որոշելու համար
     int first_value_search = fibanachi( numfor_search_fib - 1 ) ;//p 
