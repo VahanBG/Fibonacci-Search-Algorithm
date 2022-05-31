@@ -21,7 +21,7 @@ void sort(std::list<int>::iterator it_first, std::list<int>::iterator it_last)	/
 		it_first++;
 	}
 }
-int fibanachi(int index_of_fibanachi)
+int fibonacci(int index_of_fibanachi)
 {
 	// gives the index number given by Fibanacci
 	if (index_of_fibanachi <= 1)
@@ -30,10 +30,10 @@ int fibanachi(int index_of_fibanachi)
 	}
 	else
 	{
-		return fibanachi(index_of_fibanachi - 1) + fibanachi(index_of_fibanachi - 2);
+		return fibonacci(index_of_fibanachi - 1) + fibonacci(index_of_fibanachi - 2);
 	}
 }
-int fibanachi_search(std::list<int> mylist, int number)
+int fibonacci_search(std::list<int> mylist, int number)
 {
 	// find the fiber we want in the already sorted array, return the index of that number
 	int size = mylist.size();
@@ -43,7 +43,7 @@ int fibanachi_search(std::list<int> mylist, int number)
 	int numfor_search_fib;	// index_of_fibanachi(size);// k
 	for (int index = 0; index <= size; ++index)
 	{
-		if (fibanachi(index) >= size + 1)
+		if (fibonacci(index) >= size + 1)
 		{
 			numfor_search_fib = index - 1;
 		}
@@ -51,19 +51,19 @@ int fibanachi_search(std::list<int> mylist, int number)
 	auto numfor_search_fib_iter = mylist.begin();
 	std::advance(numfor_search_fib_iter, numfor_search_fib);	// k   
 
-	int index_for_mas = fibanachi(numfor_search_fib + 1) - (size + 1);	//m
+	int index_for_mas = fibonacci(numfor_search_fib + 1) - (size + 1);	//m
 	auto index_for_mas_iter = mylist.begin();
 	std::advance(index_for_mas_iter, index_for_mas);	// m
 
-	int index_for_search = fibanachi(numfor_search_fib) - index_for_mas;	//i
+	int index_for_search = fibonacci(numfor_search_fib) - index_for_mas;	//i
 	auto index_for_search_iter = mylist.begin();
 	std::advance(index_for_search_iter, index_for_search);	//i
 
-	int first_value_search = fibanachi(numfor_search_fib - 1);	//p 
+	int first_value_search = fibonacci(numfor_search_fib - 1);	//p 
 	auto first_value_search_iter = mylist.begin();
 	std::advance(first_value_search_iter, first_value_search);
 
-	int last_value_search = fibanachi(numfor_search_fib - 2);	//q 
+	int last_value_search = fibonacci(numfor_search_fib - 2);	//q 
 	auto last_value_search_iter = mylist.begin();
 	std::advance(last_value_search_iter, last_value_search);	//q
 
@@ -153,34 +153,3 @@ void print_list(std::list<int> mylist)
 	std::cout << std::endl;
 }
 
-int main()
-{
-	std::list<int> mylist;
-	int size;
-	std::cout << "please enter size of numbers in your array" << std::endl;
-	std::cin >> size;
-	std::cout << "please enter numbers of your array" << std::endl;
-	int numbers;
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << "enter value of " << i << " index " << std::endl;
-		std::cin >> numbers;
-		mylist.push_back(numbers);
-		numbers = 0;
-	}
-	std::cout << "mylist contains:";
-	print_list(mylist);
-	std::cout << std::endl;
-	std::list<int>::iterator it_first = mylist.begin();
-	auto it_last = mylist.end();
-	it_last--;
-	sort(it_first, it_last);
-	std::cout << "mylist contains after sorting :";
-	print_list(mylist);
-	std::cout << std::endl;
-	int number;
-	std::cout << "please enter the number which are you search" << std::endl;
-	std::cin >> number;
-	std::cout << "the index of number fibanachi which you are looking for in your numbers is: " << fibanachi_search(mylist, number);
-
-}
